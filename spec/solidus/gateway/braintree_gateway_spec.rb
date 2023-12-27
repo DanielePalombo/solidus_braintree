@@ -73,7 +73,7 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
             :credit_card,
             name: "Card Holder",
             user: user,
-            address: create(:address, last_name: "Doe")
+            address: create(:address, name: "John Doe")
           ),
           payment_method: payment_method,
           payment_method_nonce: nonce
@@ -406,7 +406,7 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
     let(:creditcard) do
       FactoryBot.create(:credit_card, gateway_payment_profile_id: 'abc123')
     end
-    let(:address) { FactoryBot.create(:address, last_name: "Doe") }
+    let(:address) { FactoryBot.create(:address, name: "John Doe") }
 
     context "with a credit card" do
       let(:options) { {
@@ -506,7 +506,7 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
 
         context 'when a billing address is provided' do
           let(:bill_address) do
-            create(:address, address1: '1234 bill address', last_name: "Doe")
+            create(:address, address1: '1234 bill address', name: "John Doe")
           end
 
           let(:options) do
@@ -525,8 +525,8 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
             let(:expected_params) do
               {
                 billing:  {
-                  first_name: bill_address.first_name,
-                  last_name: bill_address.last_name,
+                  first_name: Spree::Address::Name.new(bill_address.name).first_name,
+                  last_name: Spree::Address::Name.new(bill_address.name).last_name,
                   street_address: bill_address.address1,
                   extended_address: bill_address.address2,
                   locality: bill_address.city,
@@ -591,8 +591,8 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
 
         let(:expected_address) do
           {
-            first_name: address.first_name,
-            last_name: address.last_name,
+            first_name: Spree::Address::Name.new(address.name).first_name,
+            last_name: Spree::Address::Name.new(address.name).last_name,
             street_address: address.address1,
             extended_address: address.address2,
             locality: address.city,
