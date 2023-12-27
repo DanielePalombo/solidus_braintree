@@ -463,7 +463,7 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
       end
 
       context "with existing customer" do
-        before { creditcard.update_attributes(gateway_customer_profile_id: 5) }
+        before { creditcard.update(gateway_customer_profile_id: 5) }
         let(:options) { {
           customer_id: user.id,
           payment_method_nonce: nonce,
@@ -576,7 +576,7 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
 
       context "with billing or shipping address" do
         before do
-          creditcard.update_attributes(gateway_customer_profile_id: 5)
+          creditcard.update(gateway_customer_profile_id: 5)
           expect(payment_method).to receive(:handle_result)
         end
 
