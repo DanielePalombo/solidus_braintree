@@ -36,7 +36,7 @@ describe Solidus::Gateway::BraintreeGateway, :vcr do
       it "fails" do
         expect{
           payment_method.create_profile(payment)
-        }.to raise_error(Spree::Core::GatewayError, 'Email is an invalid format.')
+        }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Customer Email is invalid')
       end
     end
 
