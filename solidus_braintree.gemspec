@@ -1,7 +1,6 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'solidus_braintree/version'
+# frozen_string_literal: true
+
+require_relative 'lib/solidus_braintree/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "solidus_braintree"
@@ -12,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Adds Solidus support for Braintree v.zero Gateway.}
   spec.description   = %q{Adds Solidus support for Braintree v.zero Gateway.}
   spec.homepage      = "https://solidus.io"
+  spec.metadata['source_code_uri'] = 'http://github.com/solidusio-contrib/solidus_braintree'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -19,16 +19,16 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "solidus_api", [">= 1.0.0", "< 4"]
-  spec.add_dependency "solidus_core", [">= 1.0.0", "< 4"]
+  spec.add_dependency "solidus_api", [">= 1.0.0", "< 5"]
+  spec.add_dependency "solidus_core", [">= 1.0.0", "< 5"]
   spec.add_dependency "solidus_support"
   spec.add_dependency "braintree", "~> 2.46"
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency 'factory_bot', '~> 4.4'
   spec.add_development_dependency 'rspec-rails'
-  spec.add_development_dependency 'capybara', '~> 2.18'
+  spec.add_development_dependency 'capybara', '~> 3.29'
   spec.add_development_dependency 'capybara-screenshot'
   spec.add_development_dependency 'webdrivers'
   spec.add_development_dependency 'ffaker'
@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr", '~> 3.0'
   spec.add_development_dependency "webmock"
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'solidus_dev_support', '~> 2.7'
 end
