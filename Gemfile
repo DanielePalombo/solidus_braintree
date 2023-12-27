@@ -47,4 +47,6 @@ gemspec
 # how Dependabot parses projects: https://github.com/dependabot/dependabot-core/issues/1658.
 send(:eval_gemfile, 'Gemfile-local') if File.exist? 'Gemfile-local'
 
+gem 'solidus_dev_support', github: 'DanielePalombo/solidus_dev_support', branch: 'solidus-4-x-support'
+
 gem "solidus_admin", "~> 0.1.0"

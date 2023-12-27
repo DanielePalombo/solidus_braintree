@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "braintree", "~> 2.46"
 
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 12.0"
+  spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency 'factory_bot', '~> 4.4'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'capybara', '~> 3.29'
@@ -36,9 +36,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "byebug"
   spec.add_development_dependency 'sqlite3'
-  spec.add_development_dependency 'database_cleaner', '~> 1.2'
+  spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency "vcr", '~> 3.0'
   spec.add_development_dependency "webmock"
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'solidus_dev_support', '~> 2.7'
 end
