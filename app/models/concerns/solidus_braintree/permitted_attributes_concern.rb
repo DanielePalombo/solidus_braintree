@@ -4,7 +4,7 @@ module SolidusBraintree
       super | [:payment_method_nonce]
     end
 
-    def checkout_attributes
+    def checkout_payment_attributes
       super | [:braintree_device_data]
     end
   end

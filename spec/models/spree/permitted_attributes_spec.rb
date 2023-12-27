@@ -6,6 +6,6 @@ describe Spree::PermittedAttributes do
   end
 
   it 'checkout_attributes includes :device_data' do
-    expect(Spree::PermittedAttributes.checkout_attributes).to include(:braintree_device_data)
+    expect(Spree::PermittedAttributes.checkout_payment_attributes).to include(:braintree_device_data)
   end
 end
