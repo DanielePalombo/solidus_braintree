@@ -2,7 +2,7 @@ require "braintree"
 
 module Solidus
   gateway_superclass =
-    if SolidusSupport.solidus_gem_version < Gem::Version.new('2.3.x')
+    if Spree.solidus_gem_version < Gem::Version.new('2.3.x')
       ::Spree::Gateway
     else
       ::Spree::PaymentMethod::CreditCard
@@ -29,7 +29,7 @@ module Solidus
       'Visa' => 'visa',
     }
 
-    if SolidusSupport.solidus_gem_version < Gem::Version.new('2.3.x')
+    if Spree.solidus_gem_version < Gem::Version.new('2.3.x')
       def method_type
         'braintree'
       end
